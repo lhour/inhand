@@ -5,7 +5,7 @@
 <web-app>
     <servlet>
         <servlet-name>myioc</servlet-name>
-        <servlet-class>com.hour.core.HourDispatcherServlet</servlet-class>
+        <servlet-class>com.hour.mvc.core.HourDispatcherServlet</servlet-class>
         <init-param>
           <param-name>contextConfigLocation</param-name>
           <param-value>app.properties</param-value>

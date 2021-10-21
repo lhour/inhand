@@ -5,10 +5,10 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hour.annotation.HourAutowired;
-import com.hour.annotation.HourController;
-import com.hour.annotation.HourRequestMapping;
-import com.hour.annotation.HourRequestParam;
+import com.hour.mvc.annotation.HourAutowired;
+import com.hour.mvc.annotation.HourController;
+import com.hour.mvc.annotation.HourRequestMapping;
+import com.hour.mvc.annotation.HourRequestParam;
 
 @HourController
 @HourRequestMapping("/my")

@@ -1,10 +1,8 @@
-com\hour\core\Handler.class
-com\hour\annotation\HourRequestParam.class
-com\hour\core\HourDispatcherServlet.class
+com\hour\mvc\annotation\HourController.class
+com\hour\mvc\annotation\HourAutowired.class
 com\hour\demo\IMyService.class
-com\hour\annotation\HourController.class
+com\hour\mvc\annotation\HourRequestMapping.class
+com\hour\mvc\annotation\HourRequestParam.class
 com\hour\demo\MyCon.class
-com\hour\annotation\HourRequestMapping.class
-com\hour\annotation\HourService.class
-com\hour\annotation\HourAutowired.class
+com\hour\mvc\annotation\HourService.class
 com\hour\demo\MyService.class

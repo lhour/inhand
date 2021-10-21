@@ -1,6 +1,6 @@
 package com.hour.demo;
 
-import com.hour.annotation.HourService;
+import com.hour.mvc.annotation.HourService;
 
 @HourService
 public class MyService implements IMyService{
