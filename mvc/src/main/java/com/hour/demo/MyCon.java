@@ -18,14 +18,13 @@ public class MyCon {
     public MyService myService;
 
     @HourRequestMapping("/show")
-    public void show(HttpServletRequest req, HttpServletResponse resp, @HourRequestParam("name") String name){
-        if(name == null){
+    public void show(HttpServletRequest req, HttpServletResponse resp, @HourRequestParam("name") String name) {
+        if(name == null) {
             name = "hour";
         }
         try {
             resp.getWriter().write(myService.get(name));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
