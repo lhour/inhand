@@ -1,4 +1,4 @@
-package _2190300408chap2.cycleList.singleList;
+package com.hour.singleList;
 
 public class Node<T> {
 

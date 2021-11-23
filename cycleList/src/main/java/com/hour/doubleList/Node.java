@@ -1,4 +1,4 @@
-package _2190300408chap2.cycleList.doubleList;
+package com.hour.doubleList;
 
 public class Node<T> {
     

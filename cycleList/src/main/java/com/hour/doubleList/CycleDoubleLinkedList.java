@@ -1,6 +1,6 @@
-package _2190300408chap2.cycleList.doubleList;
+package com.hour.doubleList;
 
-import _2190300408chap2.cycleList.CycleLinkedList;
+import com.hour.CycleLinkedList;
 
 public class CycleDoubleLinkedList<T> implements CycleLinkedList<T>{
 

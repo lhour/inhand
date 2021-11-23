@@ -1,6 +1,6 @@
-package _2190300408chap2.cycleList.singleList;
+package com.hour.singleList;
 
-import _2190300408chap2.cycleList.CycleLinkedList;
+import com.hour.CycleLinkedList;
 
 public class CycleSingleLinkedList<T> implements CycleLinkedList<T> {
 

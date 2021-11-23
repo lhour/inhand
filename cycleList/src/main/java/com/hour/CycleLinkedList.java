@@ -1,4 +1,4 @@
-package _2190300408chap2.cycleList;
+package com.hour;
 
 public interface CycleLinkedList<T> {
 
