@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import static com.hour.v1.tool.ThreadTool.sleep;
 
 public class DefaultMessageQueue<T extends Message> {
-    
+
     Logger log = LoggerFactory.getLogger(this.getClass());
 
     private String name;
@@ -22,8 +22,6 @@ public class DefaultMessageQueue<T extends Message> {
     HashMap<String, List<Subscriber<T>>> subscribers = new HashMap<>();
 
     private Queue<T> queue = new LinkedList<>();
-
-    
 
     /**
      * @param name
@@ -41,37 +39,37 @@ public class DefaultMessageQueue<T extends Message> {
         this.capacity = capacity;
     }
 
-    public void push(T msg){    
+    public void push(T msg) {
         int i = 0;
-        while(queue.size() >= capacity * 0.8){
-            log.debug("队列已满，重试第{}次, {}", i ++, msg);
+        while (queue.size() >= capacity * 0.8) {
+            log.debug("队列已满，重试第{}次, {}", i++, msg);
             sleep(100);
         }
         queue.add(msg);
         log.debug("MQ接收到消息 {}", msg);
-    }   
+    }
 
-    public void pull(){
-        while(queue.isEmpty()){
+    public void pull() {
+        while (queue.isEmpty()) {
             log.debug("MQ为空");
             sleep(100);
         }
         T msg = queue.poll();
         String topic = msg.getTopic();
         List<Subscriber<T>> targets = subscribers.getOrDefault(topic, new ArrayList<>());
-        for(Subscriber<T> s : targets){
+        for (Subscriber<T> s : targets) {
             giveMessage(s, msg);
         }
     }
 
-    public void addSubscriber(String topic, Subscriber<T> sub){
+    public void addSubscriber(String topic, Subscriber<T> sub) {
         List<Subscriber<T>> list = subscribers.getOrDefault(topic, new ArrayList<>());
         list.add(sub);
         subscribers.put(topic, list);
         log.debug("订阅成功 sub:{} -> topic:{}", sub, topic);
     }
 
-    private void giveMessage(Subscriber<T> s,T msg) {
+    private void giveMessage(Subscriber<T> s, T msg) {
         log.debug("MQ发送消息 msg:{}", msg);
         s.getMessage(msg);
     }
@@ -104,5 +102,4 @@ public class DefaultMessageQueue<T extends Message> {
         this.capacity = capacity;
     }
 
-    
 }

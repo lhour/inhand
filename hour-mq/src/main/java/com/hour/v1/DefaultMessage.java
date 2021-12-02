@@ -1,7 +1,7 @@
 package com.hour.v1;
 
-public class DefaultMessage implements Message{
-    
+public class DefaultMessage implements Message {
+
     private String topic;
 
     private String content;
@@ -43,10 +43,12 @@ public class DefaultMessage implements Message{
         this.content = content;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
-    
+
     @Override
     public String toString() {
         return String.format("DefaultMessage [content=%s, topic=%s]", content, topic);
