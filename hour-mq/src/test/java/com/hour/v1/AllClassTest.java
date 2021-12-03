@@ -2,6 +2,8 @@ package com.hour.v1;
 
 import org.junit.jupiter.api.Test;
 import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+
 import static com.hour.v1.tool.ThreadTool.sleep;
 
 public class AllClassTest {
@@ -9,9 +11,10 @@ public class AllClassTest {
     static String[] top = new String[]{"topic1","topic2","topic3","topic4"};
 
     @Test
-    public void test01(){
+    public void test01() throws InterruptedException{
 
         DefaultMessageQueue<DefaultMessage> queue1 = new DefaultMessageQueue<>("MQ");
+        CountDownLatch cdl = new CountDownLatch(2);
         Random r = new Random();
         // 模拟订阅消息
         queue1.addSubscriber(top[0], new Subscriber<DefaultMessage>("下游服务0", top[0]));
@@ -30,6 +33,7 @@ public class AllClassTest {
                     sleep(100);
                     queue1.push(new DefaultMessage(top[r.nextInt(4)], String.valueOf(r.nextLong())));
                 }
+                cdl.countDown();
             }
         ,"MQ接收器").start();
 
@@ -42,8 +46,11 @@ public class AllClassTest {
                     sleep(100);
                     queue1.pull();
                 }
+                cdl.countDown();
             }
         ,"MQ广播器").start();
+
+        cdl.await();
     }
 
     public static void main(String[] args) {

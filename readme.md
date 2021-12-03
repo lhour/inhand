@@ -4,10 +4,21 @@
 ### ioc
 #### v1
 实现 Component、Value、Configuration、ConfigurationProperties、Bean、Autowired 功能
-没有华丽花哨的设计模式
 目前只能读取 .properties 文件
 
 ### mvc
 #### v1
 实现了 Controller、Service、Autowired 注解
 目前只能读取 .properties 文件
+
+### cycleList
+#### v1
+实现带头节点的单双循环链表
+
+### hour-mq
+#### v1
+实现简单生产消费模型。消息队列中的订阅发布模式
+
+### skiplist
+#### v1
+跳跃表
